@@ -1,0 +1,14 @@
+web:
+  build: .
+  command: php -S 0.0.0.0:8080 -t /typo3
+  ports:
+    - "8080:8080"
+  links:
+    - db
+  volumes:
+    - .:/typo3
+db:
+  image: partlab/ubuntu-mariadb
+  environment:
+    MARIADB_DATABASE: typo3
+
